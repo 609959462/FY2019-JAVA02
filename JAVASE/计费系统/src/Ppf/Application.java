@@ -36,12 +36,13 @@ public class Application {
 			}else  if(num==2){
 			//注册
 				
-				try {
-					userView.register();
-				} catch (LoginException e) {
-					String msg=e.getMessage();      //getMessage 异常的信息
-					System.out.print(msg);
-				}	
+					try {
+						userView.register();
+					} catch (RegisterException e) {
+						String msg=e.getMessage();      //getMessage 异常的信息
+						System.out.print(msg);
+					}
+				
 				
 			
 		}

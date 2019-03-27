@@ -1,6 +1,7 @@
 package Ppf.viewimpl;
 
 import Ppf.Exception.LoginException;
+import Ppf.Exception.RegisterException;
 import Ppf.service.UserBiz;
 import Ppf.serviceimpl.UserBizimpl;
 import Ppf.view.UserView;
@@ -25,16 +26,17 @@ public class UserViewimpl implements UserView {
 	
 	
 	
-	 public void register() {
+	 public void register() throws RegisterException {
 		 	Scanner s=new Scanner(System.in);
 			System.out.println("请输入您要注册的用户名:");
 			String username=s.next();
-			
 			UserBizimpl usb=new UserBizimpl();
+			usb.register(username);
 			System.out.println("请输入您的密码:");
 			String password=s.next();
 			System.out.println("请再次输入您的密码:");
 			String password2=s.next();
+			usb.register(password,password2);
 			System.out.println("请输入您的邮箱:");
 			String email=s.next();
 	 }

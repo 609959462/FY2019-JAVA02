@@ -7,6 +7,7 @@ import Ppf.service.UserBiz;
 
 public class UserBizimpl implements UserBiz {          //实现接口
 	private User[] users=new User[10];   
+	
 	public  UserBizimpl() {                             //在构造函数里初始化，调用的时候直接就初始化了
 		     
 		User user1=new User("admin","admin","Administrator","admin@123.com");
@@ -61,6 +62,18 @@ public class UserBizimpl implements UserBiz {          //实现接口
 	
 	public void register(String username, String password, String password2,
 				String name, String email) throws RegisterException{
+	 }
+	public void register(String password, String password2) throws RegisterException{
+		
+		if(!(password.equals(password2))) {
+			 throw new RegisterException("您的两次密码不一致，请重新输入");
+			 
+		}
+		
+ }
+	@Override
+	public void register(String username) throws RegisterException {
+		// TODO Auto-generated method stub
 		for(int i=0;i<users.length;i++) {
 			User user=users[i];
 			if(user==null) {
@@ -71,5 +84,9 @@ public class UserBizimpl implements UserBiz {          //实现接口
 				 throw new RegisterException("用户名已经存在");
 			}
 		}
-	 }
+	}
+	
+	
+	
+	
 }
