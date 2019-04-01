@@ -59,6 +59,7 @@ public class UserBizimpl implements UserBiz {          //实现接口
 		 throw new LoginException("用户名不存在");
 		
 	}
+
 	
 	public void register(String username, String password, String password2,
 				String name, String email) throws RegisterException{

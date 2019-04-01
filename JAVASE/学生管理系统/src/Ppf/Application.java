@@ -8,22 +8,13 @@ import Ppf.UesrView.UserView;
 import Ppf.UserViewimpl.UserViewimpl;
 
 public class Application {
-	
+	UserView user=new UserViewimpl();
 	public static void main(String[] args) {
 		Application app=new Application();
 		// TODO Auto-generated method stub
 		app.choise();
 		UserView user=new UserViewimpl();
-		user.see();
-}
-	
-	
-	
-	
-	
-	
-	
-	
+		}
 	
 	public void  choise() {
 	System.out.println("=======欢迎登陆学生系统=======");
@@ -34,18 +25,20 @@ public class Application {
 	int num=s.nextInt();
 	if(num==1) {
 		//登陆
-		UserView user=new UserViewimpl();
+		//UserView user=new UserViewimpl();        
 			try {
 				user.login();
+				user.see();
+				
 			} catch (LoginException e) {
 				// TODO Auto-generated catch block
 				String msg=e.getMessage();      //getMessage 异常的信息
-				System.out.print(msg);
-				
+				System.out.println(msg);
+				choise();
 				
 				
 			}
-		
+		//operation11();	//登陆
 		
 	}
 	if(num==2) {
@@ -53,4 +46,16 @@ public class Application {
 		System.exit(0);
 	}
 }
-}
+//	public void operation11() {
+//		try {                                 //再写个方法调用login
+//			user.login();
+//			user.see();
+//		} catch (LoginException e) {
+//			// TODO Auto-generated catch block
+//			String msg=e.getMessage();      //getMessage 异常的信息
+//			System.out.print(msg);	
+//			operation11();
+//	  }		
+//	
+//	}
+} 

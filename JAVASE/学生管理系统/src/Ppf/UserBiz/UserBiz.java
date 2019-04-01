@@ -12,9 +12,8 @@ public interface UserBiz {
 	
 	void delect();
 	void correct(Student[] students);
+	void correctPart(Student[] students);
+	void delect(Student[] students);
+	boolean isusernameexists(String username) throws LoginException;
+	}
 	
-	
-	
-	
-	
-}
