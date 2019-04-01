@@ -15,7 +15,6 @@ public class UserBizimpl implements UserBiz {          //实现接口
 		User user2=new User("tom","cat","tomcat","tomcat@123.com");
 		users[0]=user1;
 		users[1]=user2;
-		
 	}		
 	public void login(String username, String password)throws LoginException {
 			boolean usernameexists=false;       //默认用户名不存在（为了满足题干的要求，用户不存在的时候）	

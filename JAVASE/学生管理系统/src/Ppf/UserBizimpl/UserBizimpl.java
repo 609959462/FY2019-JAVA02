@@ -44,6 +44,7 @@ public class UserBizimpl implements UserBiz {
 					System.out.println("欢迎您"+username+"先生");
 				}else {//username 和password 不匹配
 					throw new LoginException("用户名与密码不匹配"); 
+					
 				}
 				}
 			}	
