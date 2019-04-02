@@ -21,8 +21,9 @@ public class UserViewimpl implements UserView {
 		String password=s.next();              //负责与用户交互，获取信息
 	
 		userBiz.login(username, password);     //调用使用信息的Biz方法（BIZ是业务逻辑层），同时这个方法还是异常的，上抛
-	}}
-	
+	}
+		}
+
 	
 	
 	

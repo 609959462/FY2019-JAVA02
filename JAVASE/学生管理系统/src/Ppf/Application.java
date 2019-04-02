@@ -8,12 +8,13 @@ import Ppf.UesrView.UserView;
 import Ppf.UserViewimpl.UserViewimpl;
 
 public class Application {
-	UserView user=new UserViewimpl();
+	//UserView user=new UserViewimpl();
+	
 	public static void main(String[] args) {
 		Application app=new Application();
 		// TODO Auto-generated method stub
 		app.choise();
-		UserView user=new UserViewimpl();
+		//UserView user=new UserViewimpl();
 		}
 	
 	public void  choise() {
@@ -27,8 +28,8 @@ public class Application {
 		//µÇÂ½
 		//UserView user=new UserViewimpl();        
 			try {
-				user.login();
-				user.see();
+				UserViewimpl.getInstance().login();
+				UserViewimpl.getInstance().see();
 				
 			} catch (LoginException e) {
 				// TODO Auto-generated catch block
