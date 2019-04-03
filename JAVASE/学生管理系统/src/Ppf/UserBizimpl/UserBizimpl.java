@@ -1,5 +1,4 @@
 package Ppf.UserBizimpl;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,6 +12,7 @@ import Ppf.UserBiz.UserBiz;
 import Ppf.UserViewimpl.UserViewimpl;
 import Ppf.pojo.Admin;
 import Ppf.pojo.Student;
+import Ppf.pojo.banji;
 
 
 public class UserBizimpl implements UserBiz {
@@ -26,30 +26,34 @@ public class UserBizimpl implements UserBiz {
 	admins.add(new Admin("zs","admin"));         //添加元素
  	admins.add(new Admin("ls","admin"));
 	}
-public void login(String username, String password) throws LoginException{
+public void login(String username,String yanzheng,String uuid,String password) throws LoginException{
 			
-		boolean usernameexists=false;
+		//boolean usernameexists=false;
 		for(int i=0;i<admins.size();i++) {
 		
 			//if(admins==null) {          //防止空指针出现
 				//continue;
 		//}
-			usernameexists=true;
+			//usernameexists=true;
 			String _username=admins.get(i).getUsername();   //系统中的(因为admin是private的，只能get得到)
 			String _password=admins.get(i).getPassword(); 
 			if(username.equalsIgnoreCase(_username)) {          //username是用户传入的
-				                                                //equalsIgnoreCase不区分大小写
+				//usernameexists=true;                            //equalsIgnoreCase不区分大小写
 				
-				
-				
-				usernameexists=true;
-				if(password.equalsIgnoreCase(_password)) {//登录成功
-					System.out.println("登录成功!!!");
-					System.out.println("欢迎您"+username+"先生");
-				}else {//username 和password 不匹配
-					throw new LoginException("用户名与密码不匹配"); 
+				if(yanzheng.equalsIgnoreCase(uuid)) {
 					
+					System.out.println("验证码");
+					if(password.equalsIgnoreCase(_password)) {//登录成功
+						System.out.println("登录成功!!!");
+						System.out.println("欢迎您"+username+"先生");
+					}else {//username 和password 不匹配
+						throw new LoginException("用户名与密码不匹配"); 				
 				}
+					
+				
+		}else {
+			throw new LoginException("验证码不正确"); 
+		}
 				}
 			}	
 		}
@@ -96,7 +100,7 @@ public void login(String username, String password) throws LoginException{
 //				}
 //			}	
 //		}
-	public boolean isusernameexists(String username) throws LoginException {
+	public boolean isusernameexists(String username) throws LoginException {      //判断用户名的
 		// TODO Auto-generated method stub	
 		for(int i=0;i<admins.size();i++) {			
 			Admin admin=admins.get(i); 
@@ -137,9 +141,15 @@ public void login(String username, String password) throws LoginException{
 	        int age = s1.nextInt();
 			
 			            
-			System.out.println("请输入学生年级");
+			System.out.println("请输入学生年级          1.高级  2中级  3.初级");
 	        String _class = s1.next();
-			
+			switch(_class) {                                          
+				case "1":_class=banji.high.getBanji();break;                       //使用枚举
+				case "2":_class=banji.middle.getBanji();break;
+				case "3":_class=banji.least.getBanji();break;				
+			}
+	        
+	        
 			System.out.println("请输入学生地址");
 	        String address = s1.next();
 			
@@ -171,6 +181,26 @@ public void login(String username, String password) throws LoginException{
 	        
 	        System.out.println("数据保存成功，系统将自动返回~");
 	        UserViewimpl.getInstance().see();
+		}
+		
+		
+		
+		public int two(List<Student> Students,int m) {             //二分法
+			
+			int x=0;
+			int y=Students.size()-1;
+			int k=(x+y)/2;
+			while(x<=y){
+				if(Students.get(k).getScores()>m) {
+					y=k-1;
+				}else if(Students.get(k).getScores()<m) {
+					x=k+1;
+				}else {
+					return k;                    
+				}
+				k=(x+y)/2;
+			}
+			return -1;						
 		}
 		public void look(List<Student> Students) {
 			Collections.sort(Students);
@@ -296,6 +326,20 @@ public void login(String username, String password) throws LoginException{
 			// TODO Auto-generated method stub
 			
 		}
+		@Override
+		public void login(String username, String password) throws LoginException {
+			// TODO Auto-generated method stub
+			
+		}
+		@Override
+		public boolean two(List<Student> students) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+	
+		
+		
+		
 		
 		
 	

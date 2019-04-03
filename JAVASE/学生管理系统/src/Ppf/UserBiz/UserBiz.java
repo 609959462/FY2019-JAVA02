@@ -17,6 +17,10 @@ public interface UserBiz {
 	void correctPart(List<Student> Students);
 	void delect(List<Student> Students);
 	boolean isusernameexists(String username) throws LoginException;
+	void login(String username, String yanzheng, String uuid, String password) throws LoginException;
+	boolean two(List<Student> students);
+	int two(List<Student> students, int x);
+	
 	
 	}
 	
