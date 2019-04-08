@@ -186,7 +186,7 @@ public void login(String username,String yanzheng,String uuid,String password) t
 		
 		
 		public int two(List<Student> Students,int m) {             //二分法
-			
+			Collections.sort(Students);
 			int x=0;
 			int y=Students.size()-1;
 			int k=(x+y)/2;
@@ -203,6 +203,16 @@ public void login(String username,String yanzheng,String uuid,String password) t
 			return -1;						
 		}
 		public void look(List<Student> Students) {
+//			for(int i=0;i<Students.size();i++) {
+//				for(int j=0;j<Students.size()-1-i;j++) {					
+//						Student temp;
+//						if(Students.get(j).getScores()>Students.get(j+1).getScores()) {
+//							temp=Students.get(j);
+//							Students.get(j)=Students.get(j+1);
+//							Students.get(j+1)=temp;
+//					}
+//				}
+//			}
 			Collections.sort(Students);
 			for(int i=0;i<Students.size();i++) {
 				Date date =new Date(Students.get(i).getDate());              //把student的时间给了

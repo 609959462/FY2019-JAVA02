@@ -98,14 +98,15 @@ public class UserViewimpl implements UserView {   //登陆
 			Scanner s2=new Scanner(System.in);
 			int num2=s2.nextInt();
 			int x=user.two(Students,num2);
-			for(int i=0;i<Students.size();i++) {
+			//for(int i=0;i<Students.size();i++) {
 			if(x!=-1) {
 				System.out.println("查到:"+Students.get(x).getName());
 			}else {
 				System.out.println("没查到");
 			}
 		}
-		}}
+		}
+	//}
 	
 	
 //	public String toString(){
