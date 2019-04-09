@@ -15,6 +15,7 @@ import Ppf.pojo.Student;
 
 public class UserViewimpl implements UserView {   //登陆
 	private static UserViewimpl userViewimpl;
+	 List<Student> Students=new ArrayList<Student>();
 	private UserViewimpl(){
 		Students.add(new Student(1,"赵云","男",25,"高级","常山",131545105,"609959462@qq.com",99,System.currentTimeMillis()));				
 	}
@@ -33,7 +34,7 @@ public class UserViewimpl implements UserView {   //登陆
 	
 //	{Student ss1=new Student(1,"赵云","男",25,"高级","常山",131545105,"609959462@qq.com",99);
 //    students[0]=ss1;}                      //不写在方法里需要加大括号，初始化数组
-	 List<Student> Students=new ArrayList<Student>();
+	
 
 //	public UserViewimpl() {
 //		Students.add(new Student(1,"赵云","男",25,"高级","常山",131545105,"609959462@qq.com",99,System.currentTimeMillis()));		
