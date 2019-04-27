@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+       
+<mapper namespace="Ppf.pojo.Course">
+
+	<insert id="addCourse" parameterType="java.lang.String" useGeneratedKeys="true"> 
+	insert into course (cname) value (#{cname})
+	</insert>
+
+   <select id="findCourse" resultType="Ppf.pojo.Course">
+   select * from course
+   </select>
+
+	<delete id="deleteCourse" parameterType="java.lang.Integer">	
+	delete from course where cid=#{cid}
+	</delete>
+	<update id="correctCourse" parameterType="java.util.Map">
+	update course set cname=#{cname} where cid=#{cid}
+	</update>
+
+
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="Ppf.pojo.Student">
+    <select id="lookAll"  resultType="Ppf.pojo.Student" >
+    select id,name,sex,age,_class,address,phone,email,scores,register_time,password from student  
+    </select>
+    <update id="correct" parameterType="java.util.Map">
+    update student set name=#{name},sex=#{sex},age=#{age},_class=#{_class},address=#{address},phone=#{phone},email=#{email},scores=#{scores} where id=#{id}
+    </update>
+    <delete id="delete" parameterType="Integer">
+    delete from student where id=#{id}
+    </delete>
+    <insert id="add">
+    insert into student (name,sex,age,_class,address,phone,email,scores,password) values (name=#{name},sex=#{sex},age=#{age},_class=#{_class},address=#{address},phone=#{phone},email=#{email},scores=#{scores},password=#{password})
+    </insert>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </mapper>
